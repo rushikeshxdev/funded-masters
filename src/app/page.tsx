@@ -10,7 +10,8 @@ import {
   PayerBanner, 
   WhyChooseUs, 
   SuccessStories, 
-  ProfitCalculator
+  ProfitCalculator,
+  BestTraders
 } from "@/components/sections";
 
 export default function Home() {
@@ -29,6 +30,7 @@ export default function Home() {
         <WhyChooseUs />
         <SuccessStories />
         <ProfitCalculator />
+        <BestTraders />
       </div>
 
       {/* Footer */}

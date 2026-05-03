@@ -8,3 +8,4 @@ export * from "./PayerBanner";
 export * from "./WhyChooseUs";
 export * from "./SuccessStories";
 export * from "./ProfitCalculator";
+export * from "./BestTraders";
