@@ -36,7 +36,7 @@ export const FAQ = () => {
   const [activeId, setActiveId] = useState<number | null>(1);
 
   return (
-    <section className="relative w-full py-12 lg:py-20 bg-black overflow-hidden font-figtree">
+    <section id="faq" className="relative w-full py-12 lg:py-20 bg-black overflow-hidden font-figtree">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         
         {/* Header Section - Further Scaled Down */}

@@ -5,17 +5,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { createClient } from "@/utils/supabase/client";
 import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const supabase = createClient();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    };
+    getUser();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      subscription.unsubscribe();
+    };
+  }, [supabase.auth]);
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-[64px] lg:h-[80px] flex items-center ${
@@ -58,18 +75,34 @@ export const Navbar = () => {
           </div>
 
           {/* Action Button */}
-          <motion.button 
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="hidden sm:flex items-center justify-center gap-2 px-6 lg:w-[130px] xl:w-[150px] h-[40px] lg:h-[48px] bg-gradient-login rounded-[12px] text-white shrink-0 group"
-          >
-            <span className="font-dmsans font-medium text-sm lg:text-base xl:text-[18px] whitespace-nowrap">
-              Log in
-            </span>
-            <div className="relative w-4 h-4">
-              <Image src="/images/icons/person.png" alt="Login" fill className="object-contain" />
-            </div>
-          </motion.button>
+          {user ? (
+            <Link href="/dashboard">
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="hidden sm:flex items-center justify-center gap-2 px-6 lg:w-[130px] xl:w-[150px] h-[40px] lg:h-[48px] bg-brand/10 border border-brand/20 rounded-[12px] text-brand shrink-0 group"
+              >
+                <span className="font-dmsans font-medium text-sm lg:text-base xl:text-[18px] whitespace-nowrap">
+                  Dashboard
+                </span>
+              </motion.button>
+            </Link>
+          ) : (
+            <Link href="/auth/login">
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="hidden sm:flex items-center justify-center gap-2 px-6 lg:w-[130px] xl:w-[150px] h-[40px] lg:h-[48px] bg-gradient-login rounded-[12px] text-white shrink-0 group"
+              >
+                <span className="font-dmsans font-medium text-sm lg:text-base xl:text-[18px] whitespace-nowrap">
+                  Log in
+                </span>
+                <div className="relative w-4 h-4">
+                  <Image src="/images/icons/person.png" alt="Login" fill className="object-contain" />
+                </div>
+              </motion.button>
+            </Link>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -100,10 +133,20 @@ export const Navbar = () => {
                 {link.title}
               </Link>
             ))}
-            <button className="w-full h-12 bg-gradient-login text-white rounded-xl font-bold text-lg flex items-center justify-center gap-3 mt-auto mb-10">
-              Log in
-              <Image src="/images/icons/person.png" alt="Login" width={20} height={20} />
-            </button>
+            {user ? (
+              <Link href="/dashboard" onClick={() => setIsOpen(false)} className="w-full">
+                <button className="w-full h-12 bg-brand/10 border border-brand/20 text-brand rounded-xl font-bold text-lg flex items-center justify-center gap-3 mb-10">
+                  Dashboard
+                </button>
+              </Link>
+            ) : (
+              <Link href="/auth/login" onClick={() => setIsOpen(false)} className="w-full">
+                <button className="w-full h-12 bg-gradient-login text-white rounded-xl font-bold text-lg flex items-center justify-center gap-3 mb-10">
+                  Log in
+                  <Image src="/images/icons/person.png" alt="Login" width={20} height={20} />
+                </button>
+              </Link>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  accounts      TradingAccount[]
+}
+
+model TradingAccount {
+  id            String    @id @default(cuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  accountNumber String    @unique
+  path          String    // Instant, 1-Step, 2-Step
+  size          String    // $25K, $50K, $100K
+  balance       Float
+  equity        Float
+  status        String    @default("ACTIVE") // ACTIVE, BREACHED, PASSED
+  
+  transactions  Transaction[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Transaction {
+  id            String    @id @default(cuid())
+  accountId     String
+  account       TradingAccount @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  
+  type          String    // PAYOUT, DEPOSIT
+  amount        Float
+  status        String    @default("PENDING") // PENDING, COMPLETED, CANCELLED
+  date          DateTime  @default(now())
+}

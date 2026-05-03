@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
 
@@ -30,13 +31,15 @@ export const HowItWorks = () => {
                 {description}
               </p>
               
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="h-[52px] lg:h-[58px] px-8 lg:px-10 bg-brand rounded-full font-figtree font-semibold text-base lg:text-[20px] text-[#001B0C] transition-shadow hover:shadow-[0_0_30px_rgba(89,210,143,0.3)] mt-2"
-              >
-                {cta}
-              </motion.button>
+              <Link href="/auth/register">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="h-[52px] lg:h-[58px] px-8 lg:px-10 bg-brand rounded-full font-figtree font-semibold text-base lg:text-[20px] text-[#001B0C] transition-shadow hover:shadow-[0_0_30px_rgba(89,210,143,0.3)] mt-2"
+                >
+                  {cta}
+                </motion.button>
+              </Link>
             </div>
 
             {/* 3D Glass Icon (The Plus/Cross) */}

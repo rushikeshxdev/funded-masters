@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 // Industry Standard: Data-Driven Configuration
 const JOIN_CTA_CONFIG = {
@@ -69,36 +70,40 @@ export const JoinCTA = () => {
               className="flex flex-col sm:flex-row items-center justify-center gap-6 lg:gap-10"
             >
               {/* Primary Button: Get Funded */}
-              <button 
-                className={`
-                  ${JOIN_CTA_CONFIG.typography.button}
-                  px-10 lg:px-14 py-4 lg:py-5
-                  rounded-full
-                  bg-gradient-to-r from-[#00B258] to-[#6AF4B3]
-                  text-black
-                  hover:scale-105 transition-transform duration-300
-                  shadow-[0_0_20px_rgba(0,178,88,0.3)]
-                `}
-              >
-                Get Funded
-              </button>
+              <Link href="/auth/register">
+                <button 
+                  className={`
+                    ${JOIN_CTA_CONFIG.typography.button}
+                    px-10 lg:px-14 py-4 lg:py-5
+                    rounded-full
+                    bg-gradient-to-r from-[#00B258] to-[#6AF4B3]
+                    text-black
+                    hover:scale-105 transition-transform duration-300
+                    shadow-[0_0_20px_rgba(0,178,88,0.3)]
+                  `}
+                >
+                  Get Funded
+                </button>
+              </Link>
 
               {/* Secondary Button: Try Demo */}
-              <button 
-                className={`
-                  ${JOIN_CTA_CONFIG.typography.button}
-                  px-10 lg:px-14 py-4 lg:py-5
-                  rounded-full
-                  bg-[rgba(92,92,92,0.1)]
-                  text-white
-                  backdrop-blur-[12.33px]
-                  border-[0.94px] border-white/20
-                  shadow-[inset_0px_3.76px_24.56px_0px_rgba(114,114,114,0.25)]
-                  hover:bg-white/10 transition-all duration-300
-                `}
-              >
-                Try Demo
-              </button>
+              <Link href="/auth/register">
+                <button 
+                  className={`
+                    ${JOIN_CTA_CONFIG.typography.button}
+                    px-10 lg:px-14 py-4 lg:py-5
+                    rounded-full
+                    bg-[rgba(92,92,92,0.1)]
+                    text-white
+                    backdrop-blur-[12.33px]
+                    border-[0.94px] border-white/20
+                    shadow-[inset_0px_3.76px_24.56px_0px_rgba(114,114,114,0.25)]
+                    hover:bg-white/10 transition-all duration-300
+                  `}
+                >
+                  Try Demo
+                </button>
+              </Link>
             </motion.div>
           </div>
         </div>

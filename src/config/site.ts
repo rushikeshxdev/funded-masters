@@ -212,30 +212,30 @@ export const siteConfig = {
       {
         title: "Company",
         links: [
-          { label: "Programs", href: "#" },
-          { label: "Pricing", href: "#" },
-          { label: "Trading Rules", href: "#" },
-          { label: "FAQs", href: "#" },
-          { label: "Affiliates", href: "#" },
+          { label: "Programs", href: "#how-it-works" },
+          { label: "Pricing", href: "#pricing" },
+          { label: "Trading Rules", href: "#rules" },
+          { label: "FAQs", href: "#faq" },
+          { label: "Affiliates", href: "#affiliates" },
         ]
       },
       {
         title: "Legal",
         links: [
-          { label: "Privacy Policy", href: "#" },
-          { label: "Terms & Conditions", href: "#" },
-          { label: "Return & Refund Policy", href: "#" },
-          { label: "Shipping Policy", href: "#" },
+          { label: "Privacy Policy", href: "/privacy" },
+          { label: "Terms & Conditions", href: "/terms" },
+          { label: "Return & Refund Policy", href: "/refunds" },
+          { label: "Shipping Policy", href: "/shipping" },
         ]
       }
     ],
     social: [
-      { name: "Discord", icon: "/images/logos/discord.png", href: "#" },
-      { name: "X.com", icon: "/images/logos/x.png", href: "#" },
-      { name: "Telegram", icon: "/images/logos/telegram.png", href: "#" },
-      { name: "Instagram", icon: "/images/logos/insta.png", href: "#" },
-      { name: "Youtube", icon: "/images/logos/utube.png", href: "#" },
-      { name: "Linkedin", icon: "/images/logos/linkedin.png", href: "#" },
+      { name: "Discord", icon: "/images/logos/discord.png", href: "https://discord.gg/fundedmasters" },
+      { name: "X.com", icon: "/images/logos/x.png", href: "https://x.com/fundedmasters" },
+      { name: "Telegram", icon: "/images/logos/telegram.png", href: "https://t.me/fundedmasters" },
+      { name: "Instagram", icon: "/images/logos/insta.png", href: "https://instagram.com/fundedmasters" },
+      { name: "Youtube", icon: "/images/logos/utube.png", href: "https://youtube.com/@fundedmasters" },
+      { name: "Linkedin", icon: "/images/logos/linkedin.png", href: "https://linkedin.com/company/fundedmasters" },
     ],
     disclaimer: [
       "Funded Master is an education and evaluation company that does not collect customer deposits or offer financial services to customers. All accounts provided to customers are in a virtual environment with virtual money.",
@@ -243,6 +243,16 @@ export const siteConfig = {
       "The technical solution offered in the form of platforms made available as part of the services offered by the Company (i.e. platforms for fictitious trading on demo accounts) uses third party services...",
     ],
     restrictedCountries: "Pakistan, Iran, Syria, Myanmar, Bangladesh, Vietnam, North Korea, the Russian Federation, the Republic of Belarus, Cuba, Lebanon, Libya, Sudan, Crimea, Donetsk and Luhansk regions of Ukraine, United Arab Emirates."
+  },
+  auth: {
+    login: {
+      headline: "Welcome Back",
+      subheadline: "Log in to manage your funded accounts and track your progress.",
+    },
+    register: {
+      headline: "Join the Masters",
+      subheadline: "Start your challenge today and prove your edge in the global markets.",
+    }
   },
   successStories: {
     headline: "Traders Success Stories",

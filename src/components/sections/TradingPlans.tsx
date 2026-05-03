@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
 export const TradingPlans = () => {
@@ -12,7 +12,7 @@ export const TradingPlans = () => {
   const [activeSize, setActiveSize] = useState(sizes[1]);
 
   return (
-    <section className="relative w-full py-16 lg:py-24 bg-black overflow-hidden font-figtree">
+    <section id="pricing" className="relative w-full py-16 lg:py-24 bg-black overflow-hidden font-figtree">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         
         {/* Header Section */}
@@ -86,15 +86,17 @@ export const TradingPlans = () => {
                 <div className="text-white text-6xl md:text-7xl lg:text-[90px] font-bold tracking-tighter leading-[0.9]">{pricing.amount}</div>
               </div>
 
-              <button className="w-full max-w-[280px] py-5 lg:py-6 bg-brand text-[#001B0C] rounded-[15px] text-lg lg:text-xl font-bold shadow-lg shadow-brand/20 transition-all hover:scale-[1.02] active:scale-95">
-                {pricing.cta}
-              </button>
+              <Link href="/auth/register" className="w-full max-w-[280px]">
+                <button className="w-full py-5 lg:py-6 bg-brand text-[#001B0C] rounded-[15px] text-lg lg:text-xl font-bold shadow-lg shadow-brand/20 transition-all hover:scale-[1.02] active:scale-95">
+                  {pricing.cta}
+                </button>
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Rules Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-12 md:mt-16">
+        <div id="rules" className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-12 md:mt-16">
           <RuleCard 
             title={evaluation.phase1.title}
             description={evaluation.phase1.description}
