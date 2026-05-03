@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050d05;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-text-primary selection:bg-brand/30 selection:text-brand;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface-card/80 backdrop-blur-md border border-surface-border rounded-2xl transition-all duration-300;
+  }
+  
+  .glass-card-hover {
+    @apply hover:border-brand/30 hover:bg-surface-card/90 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply bg-brand text-dark font-bold px-6 py-3 rounded-full transition-all duration-300 hover:bg-brand/80 hover:shadow-glow active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-brand border border-brand/50 font-bold px-6 py-3 rounded-full transition-all duration-300 hover:bg-brand/10 hover:border-brand active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-brand;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-border rounded-full hover:bg-brand/50 transition-colors;
+}
+
+/* Gradients and Glows */
+.bg-glow-top {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,255,136,0.15), transparent);
+}
+
+.bg-glow-bottom {
+  background: radial-gradient(ellipse 80% 50% at 50% 120%, rgba(0,255,136,0.1), transparent);
+}
