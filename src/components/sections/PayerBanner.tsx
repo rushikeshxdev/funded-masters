@@ -15,7 +15,7 @@ const SQUARE_POSITIONS = [
 
 export const PayerBanner = () => {
   return (
-    <section className="relative w-full py-16 bg-black overflow-hidden font-figtree">
+    <section className="relative w-full pt-4 pb-16 bg-black overflow-hidden font-figtree">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         
         <motion.div

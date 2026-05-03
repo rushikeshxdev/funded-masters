@@ -27,7 +27,7 @@ export const TradingPlans = () => {
   const [activeSize, setActiveSize] = useState("$50K");
 
   return (
-    <section className="relative w-full py-16 lg:py-32 bg-black overflow-hidden font-figtree">
+    <section className="relative w-full pt-16 pb-10 lg:pt-32 lg:pb-16 bg-black overflow-hidden font-figtree">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         
         {/* Header Section */}

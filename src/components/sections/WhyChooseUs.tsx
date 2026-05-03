@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { FeatureCard, Feature } from "./FeatureCard";
-
 
 const FEATURES: Feature[] = [
   {
@@ -39,20 +38,26 @@ const FEATURES: Feature[] = [
 
 export const WhyChooseUs = () => {
   return (
-    <section className="relative w-full py-16 lg:py-32 bg-black overflow-hidden font-figtree">
+    <section className="relative w-full py-20 md:py-32 bg-black overflow-hidden font-figtree">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
         
         {/* Header Section */}
-        <div className="text-center mb-16 lg:mb-24">
-          <h2 className="text-white text-4xl lg:text-[72px] font-normal leading-tight tracking-tight mb-4 lg:mb-6">
-            Why We&apos;re <span className="font-semibold text-brand">Top Rated PropFirm</span>
-          </h2>
+        <div className="text-center mb-20 md:mb-28">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-white text-4xl md:text-6xl lg:text-[85px] font-normal leading-[1.2] lg:leading-[121px] tracking-tight"
+          >
+            Why We’re <span className="font-semibold text-[#59D28F]">Top Rated PropFirm</span>
+          </motion.h2>
         </div>
 
-        {/* Features Grid - Reverted to 530px cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center">
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10 justify-items-center">
           {FEATURES.map((feature, idx) => (
-            <FeatureCard key={idx} feature={feature} />
+            <FeatureCard key={idx} feature={feature} index={idx} />
           ))}
         </div>
       </div>
