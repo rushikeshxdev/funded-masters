@@ -83,7 +83,7 @@ npm run dev
 ---
 
 <div align="center">
-  <p>Built with ❤️ by <b>Funded Masters Team</b></p>
+  <p>Built with ❤️ by <b>Rushikesh Randive</b></p>
   <img src="https://forthebadge.com/images/badges/built-with-love.svg" height="25" />
   <img src="https://forthebadge.com/images/badges/made-with-typescript.svg" height="25" />
 </div>
