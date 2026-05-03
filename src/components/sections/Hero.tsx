@@ -11,7 +11,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
         <div className="absolute bottom-0 right-0 w-[846px] h-[121px] pointer-events-none">
           <Image 
-            src="/images/BackgroundImage.png" 
+            src="/images/backgrounds/BackgroundImage.png" 
             alt="Hero Warrior"
             fill
             className="object-contain object-right-bottom opacity-70"

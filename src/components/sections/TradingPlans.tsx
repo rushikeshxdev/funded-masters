@@ -8,18 +8,18 @@ const PATHS = ["Instant", "1-Step", "2-Step", "Spartan"];
 const SIZES = ["$25K", "$50K", "$100K"];
 
 const RULES_1 = [
-  { label: "Max Daily Drawdown", value: "2%", icon: "/images/4thPage/warn.png" },
-  { label: "Max Overall Drawdown", value: "10%", icon: "/images/4thPage/warn.png" },
-  { label: "Minimum Profitable Days", value: "3 Days", icon: "/images/4thPage/warn.png" },
-  { label: "Sim Trading Leverage", value: "30:1", icon: "/images/4thPage/scale.png" },
+  { label: "Max Daily Drawdown", value: "2%", icon: "/images/icons/warn.png" },
+  { label: "Max Overall Drawdown", value: "10%", icon: "/images/icons/warn.png" },
+  { label: "Minimum Profitable Days", value: "3 Days", icon: "/images/icons/warn.png" },
+  { label: "Sim Trading Leverage", value: "30:1", icon: "/images/icons/scale.png" },
 ];
 
 const RULES_2 = [
-  { label: "Payout Share", value: "90%", icon: "/images/4thPage/fire.png" },
-  { label: "Max Daily Drawdown", value: "4%", icon: "/images/4thPage/warn.png" },
-  { label: "Max Overall Drawdown", value: "6%", icon: "/images/4thPage/trending_down.png" },
-  { label: "Payout Frequency", value: "14 days", icon: "/images/4thPage/calendar.png" },
-  { label: "Trading Period", value: "Unlimited", icon: "/images/4thPage/scale.png" },
+  { label: "Payout Share", value: "90%", icon: "/images/icons/fire.png" },
+  { label: "Max Daily Drawdown", value: "4%", icon: "/images/icons/warn.png" },
+  { label: "Max Overall Drawdown", value: "6%", icon: "/images/icons/trending_down.png" },
+  { label: "Payout Frequency", value: "14 days", icon: "/images/icons/calendar.png" },
+  { label: "Trading Period", value: "Unlimited", icon: "/images/icons/scale.png" },
 ];
 
 export const TradingPlans = () => {
@@ -83,7 +83,7 @@ export const TradingPlans = () => {
             {/* Right side: Pricing Card */}
             <div className="w-[378px] h-[264px] bg-[#020B06] rounded-[25px] border border-[#28533B] p-10 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl">
               <div className="absolute top-4 right-4 bg-brand/10 px-4 py-1.5 rounded-full border border-brand/30 flex items-center gap-2">
-                 <div className="relative w-4 h-4"><Image src="/images/4thPage/fire.png" alt="hot" fill /></div>
+                 <div className="relative w-4 h-4"><Image src="/images/icons/fire.png" alt="hot" fill /></div>
                  <span className="text-brand text-xs font-bold uppercase tracking-wider">Most Popular</span>
               </div>
               <div className="space-y-4 mb-6">

@@ -7,27 +7,27 @@ const ASSETS = [
   {
     title: "Up to 100% Profit Splits",
     description: "Keep every dollar you earn - Our funding model lets you keep up to 100% of your profits.",
-    icon: "/images/2ndpage/frame2-icon.png",
+    icon: "/images/icons/feat-2.png",
   },
   {
     title: "1-Step Challenge",
     description: "One clear target, one easy step-prove your skills and unlock funding with no extra steps.",
-    icon: "/images/2ndpage/frame3-icon.png",
+    icon: "/images/icons/feat-3.png",
   },
   {
     title: "Lightning Fast Payouts",
     description: "Trade hard today, spend tomorrow - experience truly lightning fast payouts.",
-    icon: "/images/2ndpage/frame4-icon.png",
+    icon: "/images/icons/feat-4.png",
   },
   {
     title: "Trade News Freely",
     description: "Earn your share of the profits and receive your payout within 24 hrs.",
-    icon: "/images/2ndpage/frame5-icon.png",
+    icon: "/images/icons/feat-5.png",
   },
   {
     title: "6% Profit Target",
     description: "Hit your mark effortlessly with our Ultra-low 6% profit target. Less stress, more trading.",
-    icon: "/images/2ndpage/frame2-icon.png",
+    icon: "/images/icons/feat-2.png",
   },
 ];
 

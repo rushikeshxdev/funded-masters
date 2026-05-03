@@ -36,7 +36,7 @@ export const PayoutTicker = () => {
             {item.hasImage ? (
               <div className="relative w-[45px] h-[62px] rounded-[4px] overflow-hidden border border-white/10 shadow-lg">
                 <Image
-                  src="/images/A/img2.png"
+                  src="/images/sections/story-2.png"
                   alt="Payout Certificate"
                   fill
                   className="object-contain"

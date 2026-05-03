@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, DM_Sans, Adamina, Figtree } from "next/font/google";
 import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,10 +35,36 @@ const figtree = Figtree({
 });
 
 export const metadata: Metadata = {
-  title: "Funded Masters | Premium Proprietary Trading Firm",
-  description: "Join Funded Masters, the top-rated prop firm. Get funded, trade our capital, and keep up to 90% of your profits. Professional trading platform with state-of-the-art infrastructure.",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   keywords: ["prop firm", "funded accounts", "trading", "forex", "crypto trading", "funded masters"],
+  authors: [
+    {
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+  ],
+  creator: siteConfig.name,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@fundedmaster",
+  },
 };
+
 
 export default function RootLayout({
   children,

@@ -969,6 +969,9 @@ video {
 .mt-4 {
   margin-top: 1rem;
 }
+.mt-24 {
+  margin-top: 6rem;
+}
 .flex {
   display: flex;
 }
@@ -989,6 +992,9 @@ video {
 }
 .aspect-\[784\/401\] {
   aspect-ratio: 784/401;
+}
+.aspect-\[400\/500\] {
+  aspect-ratio: 400/500;
 }
 .h-10 {
   height: 2.5rem;
@@ -1343,6 +1349,9 @@ video {
 }
 .rounded-xl {
   border-radius: 0.75rem;
+}
+.rounded-\[30px\] {
+  border-radius: 30px;
 }
 .border {
   border-width: 1px;
@@ -1782,6 +1791,9 @@ video {
 .leading-tight {
   line-height: 1.25;
 }
+.leading-\[121px\] {
+  line-height: 121px;
+}
 .tracking-tight {
   letter-spacing: -0.025em;
 }
@@ -1793,6 +1805,12 @@ video {
 }
 .tracking-widest {
   letter-spacing: 0.1em;
+}
+.tracking-\[-3\%\] {
+  letter-spacing: -3%;
+}
+.tracking-\[-3px\] {
+  letter-spacing: -3px;
 }
 .text-\[\#001B0C\] {
   --tw-text-opacity: 1;
@@ -1859,6 +1877,9 @@ video {
 }
 .text-white\/80 {
   color: rgb(255 255 255 / 0.8);
+}
+.text-white\/20 {
+  color: rgb(255 255 255 / 0.2);
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
@@ -1948,6 +1969,10 @@ video {
 }
 .backdrop-blur-xl {
   --tw-backdrop-blur: blur(24px);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+.backdrop-blur-sm {
+  --tw-backdrop-blur: blur(4px);
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 .transition {
@@ -2312,6 +2337,14 @@ video {
     height: 50px;
   }
 
+  .lg\:h-\[46px\] {
+    height: 46px;
+  }
+
+  .lg\:h-\[62px\] {
+    height: 62px;
+  }
+
   .lg\:w-10 {
     width: 2.5rem;
   }
@@ -2334,6 +2367,14 @@ video {
 
   .lg\:w-\[846px\] {
     width: 846px;
+  }
+
+  .lg\:w-\[190px\] {
+    width: 190px;
+  }
+
+  .lg\:w-\[46px\] {
+    width: 46px;
   }
 
   .lg\:max-w-\[800px\] {
@@ -2467,6 +2508,10 @@ video {
 
   .lg\:text-\[40\.97px\] {
     font-size: 40.97px;
+  }
+
+  .lg\:text-\[22px\] {
+    font-size: 22px;
   }
 
   .lg\:leading-\[1\.4\] {

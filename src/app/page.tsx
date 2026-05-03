@@ -1,23 +1,42 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Hero, Stats, Features, HowItWorks, TradingPlans, PayerBanner, WhyChooseUs, SuccessStories, ProfitCalculator } from "@/components/sections";
+"use client";
+
+import { Navbar } from "@/components/shared";
+import { 
+  Hero, 
+  Features, 
+  HowItWorks, 
+  TradingPlans, 
+  PayerBanner, 
+  WhyChooseUs, 
+  SuccessStories, 
+  ProfitCalculator 
+} from "@/components/sections";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <main className="flex flex-col w-full bg-black min-h-screen">
       <Navbar />
-      <Hero />
-      <Features />
-      <HowItWorks />
-      <TradingPlans />
-      <PayerBanner />
-      <WhyChooseUs />
-      <SuccessStories />
-      <ProfitCalculator />
       
-      {/* Footer Placeholder */}
-      <footer className="py-20 text-center opacity-20 border-t border-white/5">
-        <p className="font-figtree text-sm">© 2026 Funded Masters. All Rights Reserved.</p>
+      {/* Scrollable Content Sections */}
+      <div className="flex flex-col w-full">
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <TradingPlans />
+        <PayerBanner />
+        <WhyChooseUs />
+        <SuccessStories />
+        <ProfitCalculator />
+      </div>
+
+      {/* Footer */}
+      <footer className="py-20 bg-black text-center border-t border-white/5">
+        <div className="max-w-[1440px] mx-auto px-6">
+          <p className="font-figtree text-[#909AAA] text-sm tracking-widest uppercase">
+            © 2026 <span className="text-white font-semibold">Funded Masters</span>. All Rights Reserved.
+          </p>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }

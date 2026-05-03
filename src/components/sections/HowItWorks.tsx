@@ -7,17 +7,17 @@ const STEPS = [
   {
     title: "Challenge Phase",
     description: "Choose a Challenge account and showcase your skills.",
-    icon: "/images/3rdpage/trophy.png",
+    icon: "/images/icons/trophy.png",
   },
   {
     title: "Get Funded Account",
     description: "Pass your challenge and get a simulated funded account.",
-    icon: "/images/3rdpage/bank.png",
+    icon: "/images/icons/bank.png",
   },
   {
     title: "Get Rewarded",
     description: "Earn your share of the profits and receive your payout within 24 hrs.",
-    icon: "/images/3rdpage/dollar.png",
+    icon: "/images/icons/dollar.png",
   },
 ];
 
@@ -29,7 +29,7 @@ export const HowItWorks = () => {
         <div className="relative w-[1196px] h-[550px] bg-[#030C07] rounded-[40px] p-20 overflow-hidden border border-white/5 mb-24 mx-auto shadow-2xl">
            <div className="absolute top-1/2 right-[50px] -translate-y-1/2 w-[600px] h-[500px] pointer-events-none">
              <Image 
-               src="/images/3rdpage/s1.png" 
+               src="/images/backgrounds/section-bg-3.png" 
                alt="3D Cross" 
                fill 
                className="object-contain"
