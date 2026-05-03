@@ -14,7 +14,8 @@ import {
   BestTraders,
   Testimonials,
   FAQ,
-  JoinCTA
+  JoinCTA,
+  Footer
 } from "@/components/sections";
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <JoinCTA />
+        <Footer />
       </div>
 
       {/* Footer */}
