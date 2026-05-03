@@ -10,3 +10,4 @@ export * from "./SuccessStories";
 export * from "./ProfitCalculator";
 export * from "./BestTraders";
 export * from "./Testimonials";
+export * from "./FAQ";

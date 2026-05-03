@@ -12,7 +12,8 @@ import {
   SuccessStories, 
   ProfitCalculator,
   BestTraders,
-  Testimonials
+  Testimonials,
+  FAQ
 } from "@/components/sections";
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
         <ProfitCalculator />
         <BestTraders />
         <Testimonials />
+        <FAQ />
       </div>
 
       {/* Footer */}
