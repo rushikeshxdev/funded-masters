@@ -1,71 +1,89 @@
-# 🏆 Funded Masters
+<div align="center">
 
-**Empowering Traders with Capital and Expertise.**  
-*A high-performance prop-trading platform built for the next generation of financial masters.*
+<img src="./public/images/logos/Navbar-logo.png" width="120" alt="Funded Masters Logo" />
+
+# 🏆 FUNDED MASTERS
+### The Premier Prop-Firm Platform for Elite Traders
+
+[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)
 
 ---
 
-## 💎 Project Overview
+**Empowering talent with institutional capital. Precision engineered for high-performance trading.**
 
-**Funded Masters** is a premium prop-firm platform designed to provide talented traders with the capital they need to scale. With a focus on high-fidelity UI, seamless user experience, and robust backend integration, it bridges the gap between ambition and institutional funding.
+[Explore the Platform](http://localhost:3000) • [Start a Challenge](http://localhost:3000/auth/register) • [Trader Login](http://localhost:3000/auth/login)
 
-## 🚀 Tech Stack
+</div>
 
-- **Frontend**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Auth**: [Supabase Auth](https://supabase.com/auth)
-- **Database**: [PostgreSQL](https://www.postgresql.org/) (via Supabase)
-- **ORM**: [Prisma](https://www.prisma.io/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+## 🌌 The Vision
+Funded Masters isn't just another prop-firm; it's a **state-of-the-art trading ecosystem**. We provide the infrastructure, security, and capital that allows traders to focus on what they do best: *mastering the markets.*
 
-## ✨ Key Features
+## ✨ High-End Features
 
-- 🟢 **Pixel-Perfect UI**: Strictly adhered to high-fidelity Figma designs.
-- 🔐 **Secure Auth**: Full registration and login flow using Supabase.
-- 📊 **Dynamic Dashboard**: Real-time account metrics and challenge tracking.
-- 📱 **Fully Responsive**: Optimized for desktop, tablet, and mobile.
-- ⚡ **Proprietary Logic**: Built-in logic for tracking challenge progress and account status.
+| Feature | Description |
+| :--- | :--- |
+| 💎 **Ultra-High Fidelity** | Pixel-perfect implementation of premium Figma designs. |
+| 🔐 **Elite Security** | Enterprise-grade Auth via Supabase with real-time session management. |
+| 📊 **Pro Dashboard** | Advanced account tracking, profit metrics, and challenge status. |
+| ⚡ **Zero Latency** | Optimized with Next.js Server Components for lightning-fast performance. |
+| 📱 **Adaptive Layout** | A seamless experience across mobile, tablet, and ultra-wide displays. |
 
-## 🏗️ Architecture
+## 🛠️ Tech Stack Architecture
+
+### **Core Infrastructure**
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS (Custom Dark Theme)
+- **Animations**: Framer Motion (Micro-interactions & Smooth Transitions)
+
+### **Backend & Data**
+- **Backend-as-a-Service**: Supabase
+- **ORM**: Prisma 6 (Stable)
+- **Database**: Managed PostgreSQL
+- **Security**: JWT & Cookie-based sessions
+
+## 🏗️ System Flow
 
 ```mermaid
-graph TD
-    A[User/Browser] --> B[Next.js App Router]
-    B --> C[Server Actions]
-    C --> D[Supabase Auth]
-    C --> E[Prisma Client]
-    E --> F[PostgreSQL Database]
-    B --> G[Client Components]
-    G --> H[Framer Motion Animations]
+graph LR
+    User((Trader)) -- Interaction --> UI[Next.js App]
+    UI -- Auth --> Auth[Supabase Auth]
+    UI -- Server Actions --> Prisma[Prisma ORM]
+    Prisma -- Persistence --> DB[(PostgreSQL)]
+    DB -- Sync --> Studio[Prisma Studio]
 ```
 
-## 🛠️ Local Setup
+## 🚀 Quick Start
 
-1. **Clone the repo**:
-   ```bash
-   git clone https://github.com/your-username/funded-masters.git
-   ```
+### 1️⃣ Clone & Install
+```bash
+git clone https://github.com/yourusername/funded-masters.git
+cd funded-masters
+npm install
+```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+### 2️⃣ Configure Secrets
+Create a `.env` file based on `.env.example`:
+```env
+DATABASE_URL="your-postgresql-url"
+NEXT_PUBLIC_SUPABASE_URL="your-url"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your-key"
+```
 
-3. **Environment Variables**:
-   Copy `.env.example` to `.env` and add your keys.
-
-4. **Database Setup**:
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
-
-5. **Run the engine**:
-   ```bash
-   npm run dev
-   ```
+### 3️⃣ Initialize Engine
+```bash
+npx prisma generate
+npx prisma db push
+npm run dev
+```
 
 ---
 
-*Built with precision by the Funded Masters Team.*
+<div align="center">
+  <p>Built with ❤️ by <b>Funded Masters Team</b></p>
+  <img src="https://forthebadge.com/images/badges/built-with-love.svg" height="25" />
+  <img src="https://forthebadge.com/images/badges/made-with-typescript.svg" height="25" />
+</div>
