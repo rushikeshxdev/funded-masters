@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/shared";
 import { 
   Hero, 
+  PayoutTicker,
   Features, 
   HowItWorks, 
   TradingPlans, 
@@ -20,6 +21,7 @@ export default function Home() {
       {/* Scrollable Content Sections */}
       <div className="flex flex-col w-full">
         <Hero />
+        <PayoutTicker />
         <Features />
         <HowItWorks />
         <TradingPlans />

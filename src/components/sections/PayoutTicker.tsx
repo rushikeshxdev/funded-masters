@@ -4,58 +4,82 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const TICKER_DATA = [
-  { amount: "$4,659.58", label: "Toronto, Canada", hasImage: true },
-  { amount: "5,863", label: "Traders", hasImage: false },
-  { amount: "$2,119.48", label: "Sydney, Australia", hasImage: true },
-  { amount: "180+", label: "Countries", hasImage: false },
-  { amount: "$8,273.75", label: "Chennai, India", hasImage: true },
-  { amount: "$2.7M", label: "Payouts", hasImage: false },
-  { amount: "$4,659.58", label: "Virginia, USA", hasImage: true },
-  { amount: "5,863", label: "Traders", hasImage: false },
+  { type: "image", src: "/images/backgrounds/image-animation.png" },
+  { type: "payout", amount: "$4,659.58", location: "Toronto, Canada" },
+  { type: "divider" },
+  { type: "stat", value: "5,863", label: "Traders" },
+  { type: "divider" },
+  { type: "image", src: "/images/backgrounds/image-animation.png" },
+  { type: "payout", amount: "$2,119.48", location: "Sydney, Australia" },
+  { type: "divider" },
+  { type: "stat", value: "180+", label: "Countries" },
+  { type: "divider" },
+  { type: "image", src: "/images/backgrounds/image-animation.png" },
+  { type: "payout", amount: "$8,273.75", location: "Chennai, India" },
+  { type: "divider" },
+  { type: "stat", value: "$2.7M", label: "Payouts" },
+  { type: "divider" },
 ];
 
 export const PayoutTicker = () => {
-  // Triple the data to ensure seamless infinite loop
-  const displayData = [...TICKER_DATA, ...TICKER_DATA, ...TICKER_DATA];
+  const duplicatedData = [...TICKER_DATA, ...TICKER_DATA, ...TICKER_DATA];
 
   return (
-    <div className="w-full bg-[#050D08] border-y border-white/5 overflow-hidden py-3">
-      <motion.div
-        className="flex items-center gap-10 whitespace-nowrap"
-        animate={{ x: [0, -1500] }}
-        transition={{
-          duration: 35,
-          repeat: Infinity,
-          ease: "linear",
+    <div className="w-full bg-[#050D08] overflow-hidden border-y border-[#365943]/20 h-[80px] lg:h-[105px] flex items-center">
+      <motion.div 
+        className="flex items-center whitespace-nowrap"
+        animate={{ x: [0, -1800] }}
+        transition={{ 
+          duration: 35, 
+          repeat: Infinity, 
+          ease: "linear" 
         }}
       >
-        {displayData.map((item, idx) => (
-          <div key={idx} className="flex items-center gap-6 min-w-fit group">
-            
-            {/* Conditional Certificate Image (img2.png) - Reduced size for clarity */}
-            {item.hasImage ? (
-              <div className="relative w-[45px] h-[62px] rounded-[4px] overflow-hidden border border-white/10 shadow-lg">
-                <Image
-                  src="/images/sections/story-2.png"
-                  alt="Payout Certificate"
-                  fill
+        {duplicatedData.map((item, index) => (
+          <div key={index} className="flex items-center">
+            {item.type === "image" && (
+              <div className="relative w-10 h-14 lg:w-[38px] lg:h-[58px] shrink-0 ml-4 lg:ml-10">
+                <Image 
+                  src={item.src} 
+                  alt="Payout Icon" 
+                  fill 
                   className="object-contain"
                 />
               </div>
-            ) : null}
+            )}
 
-            {/* Text Content - Scaled down */}
-            <div className="flex flex-col justify-center">
-              <span className="font-dmsans font-semibold text-[24px] leading-[1.1] text-[#59D28F]">
-                {item.amount}
-              </span>
-              <span className="font-dmsans font-normal text-[14px] leading-tight text-white/80">
-                {item.label}
-              </span>
-            </div>
+            {item.type === "payout" && (
+              <div className="flex flex-col items-center lg:items-start ml-2 lg:ml-4 mr-6 lg:mr-10">
+                <span className="text-[#59D28F] font-dmsans font-semibold text-xl lg:text-[28px] leading-tight">
+                  {item.amount}
+                </span>
+                <span className="text-white font-dmsans font-normal text-xs lg:text-[16px] leading-tight opacity-80">
+                  {item.location}
+                </span>
+              </div>
+            )}
 
-            {/* Vertical Line Separator (Scaled to 50px) */}
-            <div className="h-[50px] w-[1px] bg-white/10 mx-6" />
+            {item.type === "stat" && (
+              <div className="flex flex-col items-center mx-6 lg:mx-10">
+                <span className="text-white font-dmsans font-semibold text-lg lg:text-[22px] leading-tight">
+                  {item.value}
+                </span>
+                <span className="text-white font-dmsans font-normal text-xs lg:text-[16px] leading-tight opacity-80">
+                  {item.label}
+                </span>
+              </div>
+            )}
+
+            {item.type === "divider" && (
+              <div className="relative w-[1px] h-8 lg:h-[42px] opacity-40">
+                <Image 
+                  src="/images/backgrounds/Vertical-line.png" 
+                  alt="Divider" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+            )}
           </div>
         ))}
       </motion.div>
