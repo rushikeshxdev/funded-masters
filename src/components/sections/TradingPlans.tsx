@@ -42,16 +42,16 @@ export const TradingPlans = () => {
           <div className="flex flex-col lg:flex-row items-start justify-between gap-12">
             
             {/* Left side: Selectors */}
-            <div className="w-full lg:w-[846px] space-y-12">
+            <div className="w-full lg:flex-1 space-y-12">
               {/* Path Selector */}
               <div className="space-y-4">
                 <p className="text-[#FEFEFE] text-xl font-medium mb-4">Choose your Trading Path</p>
-                <div className="flex p-1.5 bg-[#030C07] rounded-[15px] border border-white/5 w-[560px]">
+                <div className="flex flex-wrap p-1.5 bg-[#030C07] rounded-[15px] border border-white/5 w-full max-w-[560px]">
                   {PATHS.map((path) => (
                     <button
                       key={path}
                       onClick={() => setActivePath(path)}
-                      className={`flex-1 py-4 px-6 rounded-[12px] text-lg font-medium transition-all ${
+                      className={`flex-1 min-w-[120px] py-4 px-6 rounded-[12px] text-lg font-medium transition-all ${
                         activePath === path ? "bg-brand text-[#001B0C] shadow-lg" : "text-white/60 hover:text-white"
                       }`}
                     >
@@ -64,7 +64,7 @@ export const TradingPlans = () => {
               {/* Size Selector */}
               <div className="space-y-4">
                 <p className="text-[#FEFEFE] text-xl font-medium mb-4">Select Account Size</p>
-                <div className="flex p-1.5 bg-[#030C07] rounded-[15px] border border-white/5 w-[420px]">
+                <div className="flex p-1.5 bg-[#030C07] rounded-[15px] border border-white/5 w-full max-w-[420px]">
                   {SIZES.map((size) => (
                     <button
                       key={size}
@@ -81,14 +81,14 @@ export const TradingPlans = () => {
             </div>
 
             {/* Right side: Pricing Card */}
-            <div className="w-[378px] h-[264px] bg-[#020B06] rounded-[25px] border border-[#28533B] p-10 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl">
+            <div className="w-full lg:w-[378px] min-h-[264px] bg-[#020B06] rounded-[25px] border border-[#28533B] p-10 relative overflow-hidden flex flex-col items-center justify-center text-center shadow-2xl">
               <div className="absolute top-4 right-4 bg-brand/10 px-4 py-1.5 rounded-full border border-brand/30 flex items-center gap-2">
                  <div className="relative w-4 h-4"><Image src="/images/icons/fire.png" alt="hot" fill /></div>
                  <span className="text-brand text-xs font-bold uppercase tracking-wider">Most Popular</span>
               </div>
               <div className="space-y-4 mb-6">
                 <p className="text-[#909AAA] text-lg font-medium uppercase tracking-widest">Start now at only</p>
-                <div className="text-white text-7xl font-bold tracking-tighter">$897</div>
+                <div className="text-white text-5xl md:text-7xl font-bold tracking-tighter">$897</div>
               </div>
               <button className="w-full py-5 bg-brand text-[#001B0C] rounded-full text-2xl font-bold shadow-lg shadow-brand/20 transition-all hover:scale-[1.02]">
                 Get Funded
@@ -99,40 +99,45 @@ export const TradingPlans = () => {
 
         {/* Rules Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="bg-[#020B06] rounded-[25px] border border-white/5 p-8 md:p-12 shadow-2xl">
-            <h3 className="text-white text-2xl font-semibold mb-8 uppercase tracking-widest">1. Verification</h3>
-            <p className="text-[#909AAA] mb-8">Choose a simulated account size and try to reach the minimum simulated gains target.</p>
-            <div className="space-y-4">
-              {RULES_1.map((rule, idx) => (
-                <div key={idx} className="flex items-center justify-between py-4 border-b border-white/5 last:border-0">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-5 h-5 opacity-40"><Image src={rule.icon} alt={rule.label} fill /></div>
-                    <span className="text-[#909AAA] text-lg">{rule.label}</span>
-                  </div>
-                  <span className="text-white text-xl font-medium">{rule.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-[#020B06] rounded-[25px] border border-white/5 p-8 md:p-12 shadow-2xl">
-            <h3 className="text-white text-2xl font-semibold mb-8 uppercase tracking-widest">2. Live Simulated Trader</h3>
-            <p className="text-[#909AAA] mb-8">You can now start trading on a simulated basis in the EmpireTrading program without simulated gain targets.</p>
-            <div className="space-y-4">
-              {RULES_2.map((rule, idx) => (
-                <div key={idx} className="flex items-center justify-between py-4 border-b border-white/5 last:border-0">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-5 h-5 opacity-40"><Image src={rule.icon} alt={rule.label} fill /></div>
-                    <span className="text-[#909AAA] text-lg">{rule.label}</span>
-                  </div>
-                  <span className="text-white text-xl font-medium">{rule.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <RuleCard 
+            title="1. Verification"
+            description="Choose a simulated account size and try to reach the minimum simulated gains target."
+            rules={RULES_1}
+          />
+          <RuleCard 
+            title="2. Live Simulated Trader"
+            description="You can now start trading on a simulated basis in the EmpireTrading program without simulated gain targets."
+            rules={RULES_2}
+          />
         </div>
 
       </div>
     </section>
   );
 };
+
+interface Rule {
+  label: string;
+  value: string;
+  icon: string;
+}
+
+const RuleCard = ({ title, description, rules }: { title: string; description: string; rules: Rule[] }) => (
+  <div className="bg-[#020B06] rounded-[25px] border border-white/5 p-8 md:p-12 shadow-2xl flex flex-col h-full">
+    <h3 className="text-white text-2xl font-semibold mb-8 uppercase tracking-widest">{title}</h3>
+    <p className="text-[#909AAA] mb-8 flex-grow">{description}</p>
+    <div className="space-y-4">
+      {rules.map((rule, idx) => (
+        <div key={idx} className="flex items-center justify-between py-4 border-b border-white/5 last:border-0">
+          <div className="flex items-center gap-3">
+            <div className="relative w-5 h-5 opacity-40">
+              <Image src={rule.icon} alt={rule.label} fill className="object-contain" />
+            </div>
+            <span className="text-[#909AAA] text-base md:text-lg">{rule.label}</span>
+          </div>
+          <span className="text-white text-lg md:text-xl font-medium">{rule.value}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
