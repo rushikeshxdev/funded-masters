@@ -171,7 +171,7 @@ export default function LoginPage() {
 
         {/* Footer Link */}
         <p className="text-center mt-8 text-white/40 text-base">
-          Don't have an account? <Link href="/auth/register" className="text-brand font-medium hover:underline">Start a Challenge</Link>
+          Don&apos;t have an account? <Link href="/auth/register" className="text-brand font-medium hover:underline">Start a Challenge</Link>
         </p>
       </motion.div>
     </div>

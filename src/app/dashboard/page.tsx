@@ -47,7 +47,7 @@ export default async function DashboardPage() {
           </div>
           <h2 className="text-2xl font-semibold mb-4">No Active Accounts</h2>
           <p className="text-white/60 max-w-md mb-8">
-            You haven't started any challenges yet. Proving your edge is just one click away.
+            You haven&apos;t started any challenges yet. Proving your edge is just one click away.
           </p>
           <button className="px-10 py-4 bg-brand text-black rounded-full font-bold hover:scale-105 transition-all">
             Get Funded Now
