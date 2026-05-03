@@ -11,3 +11,4 @@ export * from "./ProfitCalculator";
 export * from "./BestTraders";
 export * from "./Testimonials";
 export * from "./FAQ";
+export * from "./JoinCTA";
