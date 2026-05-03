@@ -10,7 +10,7 @@ import {
   PayerBanner, 
   WhyChooseUs, 
   SuccessStories, 
-  ProfitCalculator 
+  ProfitCalculator
 } from "@/components/sections";
 
 export default function Home() {
