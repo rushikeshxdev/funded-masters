@@ -3,18 +3,14 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const STORIES = [
-  { name: "Alex Rivera", amount: "$12,450", date: "April 2024", image: "/images/backgrounds/story1.png" },
-  { name: "Samantha Lee", amount: "$28,900", date: "March 2024", image: "/images/backgrounds/story1.png" },
-  { name: "Michael Chen", amount: "$45,200", date: "Feb 2024", image: "/images/backgrounds/story1.png" },
-  { name: "Elena Petrova", amount: "$18,700", date: "Jan 2024", image: "/images/backgrounds/story1.png" },
-  { name: "David Miller", amount: "$35,000", date: "Dec 2023", image: "/images/backgrounds/story1.png" },
-];
+import { siteConfig } from "@/config/site";
 
 export const SuccessStories = () => {
+  const { headline, subheadline, items } = siteConfig.successStories;
+
   return (
-    <section className="relative w-full py-20 md:py-32 bg-black overflow-hidden font-figtree">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 mb-20 md:mb-28">
+    <section className="relative w-full py-16 lg:py-24 bg-black overflow-hidden font-figtree">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10 mb-16 lg:mb-24">
         
         {/* Header Section */}
         <div className="text-center max-w-[1100px] mx-auto">
@@ -23,9 +19,9 @@ export const SuccessStories = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-white text-4xl md:text-6xl lg:text-[85px] font-normal leading-[1.2] lg:leading-[121px] tracking-tight mb-6"
+            className="text-white text-3xl md:text-5xl lg:text-[65px] font-normal leading-tight tracking-tight mb-6"
           >
-            Traders <span className="font-semibold text-[#59D28F]">Success Stories</span>
+            {headline.split("Success")[0]} <span className="font-semibold text-brand">Success {headline.split("Success")[1]}</span>
           </motion.h2>
           
           <motion.p 
@@ -33,9 +29,9 @@ export const SuccessStories = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-[#D1D1D1] font-light text-lg md:text-2xl lg:text-[28px] leading-relaxed tracking-tight max-w-[900px] mx-auto opacity-80"
+            className="text-[#D1D1D1] font-light text-base md:text-lg lg:text-[22px] leading-relaxed tracking-tight max-w-[900px] mx-auto opacity-80"
           >
-            Discover the potential to earn your desired income through trading without risking your own capital:
+            {subheadline}
           </motion.p>
         </div>
       </div>
@@ -56,7 +52,7 @@ export const SuccessStories = () => {
             },
           }}
         >
-          {[...STORIES, ...STORIES, ...STORIES].map((story, idx) => (
+          {[...items, ...items, ...items].map((story, idx) => (
             <SuccessCard key={idx} story={story} />
           ))}
         </motion.div>

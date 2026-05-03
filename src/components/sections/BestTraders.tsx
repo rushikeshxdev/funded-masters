@@ -39,23 +39,12 @@ const TRADERS_CONFIG = {
   }
 };
 
-const STATS_DATA = [
-  { label: "Total Payouts", value: "$2.7M+" },
-  { label: "Total Traders", value: "$5K+" },
-  { label: "Avg.Payout time", value: "5hrs" },
-];
-
-const TRADERS_DATA = [
-  { name: "John Bartlett", country: "Poland", amount: "$3,423.39", time: "1 Hours", logo: "/images/logos/T-logo.png" },
-  { name: "Thomas Vargas", country: "Austria", amount: "$9,423.39", time: "4 Hours", logo: "/images/logos/T-logo.png" },
-  { name: "James Colon", country: "Norway", amount: "$14,291.76", time: "8 Hours", logo: "/images/logos/T-logo.png" },
-  { name: "Joseph Hurst", country: "Poland", amount: "$1,117.97", time: "6 Hours", logo: "/images/logos/ethereum.png" },
-  { name: "Richard Miles", country: "Iraq", amount: "$6,142.12", time: "20 Hours", logo: "/images/logos/T-logo.png" },
-];
-
-const ANIMATED_TRADERS = [...TRADERS_DATA, ...TRADERS_DATA, ...TRADERS_DATA];
+import { siteConfig } from "@/config/site";
 
 export const BestTraders = () => {
+  const { headline, subheadline, stats, items } = siteConfig.bestTraders;
+  const ANIMATED_TRADERS = [...items, ...items, ...items];
+
   return (
     <section className="relative w-full py-12 lg:py-20 bg-black overflow-hidden font-figtree">
       
@@ -75,19 +64,18 @@ export const BestTraders = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className={TRADERS_CONFIG.typography.headline}
+                className="text-white text-3xl md:text-5xl lg:text-[65px] font-normal leading-tight tracking-tight"
               >
-                <span className="text-white font-normal">Rewarding Our</span> <br />
-                <span className="text-white font-semibold">Best Traders</span>
+                {headline.split("Our")[0]} <span className="font-semibold text-brand">Our {headline.split("Our")[1]}</span>
               </motion.h2>
               <p className={`${TRADERS_CONFIG.typography.subheadline} text-[#D1D1D1] ${TRADERS_CONFIG.leftPane.contentWidth} opacity-70`}>
-                Choose the evaluation based on your preference to become an Master Trader.
+                {subheadline}
               </p>
             </div>
 
             {/* Stats Block */}
             <div className="flex flex-wrap gap-10 lg:gap-14">
-              {STATS_DATA.map((stat, idx) => (
+              {stats.map((stat, idx) => (
                 <div key={idx} className="space-y-3">
                   <p className={TRADERS_CONFIG.leftPane.statsValue} style={{ color: TRADERS_CONFIG.colors.payout }}>
                     {stat.value}
@@ -114,7 +102,7 @@ export const BestTraders = () => {
               <motion.div 
                 className="flex flex-col gap-3 px-6 lg:px-8"
                 animate={{ 
-                  y: [0, -122 * TRADERS_DATA.length] // 110px card + 12px gap = 122px
+                  y: [0, -122 * items.length] // 110px card + 12px gap = 122px
                 }}
                 transition={{ 
                   duration: 25, 

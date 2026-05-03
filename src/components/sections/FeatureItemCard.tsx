@@ -17,7 +17,7 @@ export const FeatureItemCard = ({ title, description, icon, rotate, index }: Fea
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.1, duration: 0.6 }}
-    className="relative group h-[240px] lg:h-[260px] w-full rounded-[25px] border border-white/10 bg-[#050D08] px-6 lg:px-8 flex flex-col items-center text-center justify-start pt-16 lg:pt-20"
+    className="relative group min-h-[240px] lg:h-[260px] w-full rounded-[25px] border border-white/10 bg-[#050D08] px-6 lg:px-8 flex flex-col items-center text-center justify-start pt-16 lg:pt-20"
     style={{
       boxShadow: "inset 0px -40px 100px 0px rgba(0, 61, 27, 0.25)",
     }}

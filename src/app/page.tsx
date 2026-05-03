@@ -40,15 +40,6 @@ export default function Home() {
         <JoinCTA />
         <Footer />
       </div>
-
-      {/* Footer */}
-      <footer className="py-20 bg-black text-center border-t border-white/5">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <p className="font-figtree text-[#909AAA] text-sm tracking-widest uppercase">
-            © 2026 <span className="text-white font-semibold">Funded Masters</span>. All Rights Reserved.
-          </p>
-        </div>
-      </footer>
     </main>
   );
 }

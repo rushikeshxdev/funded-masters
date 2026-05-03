@@ -29,50 +29,10 @@ interface FAQItem {
   answer: string;
 }
 
-const FAQ_DATA: FAQItem[] = [
-  {
-    id: 1,
-    question: "What is Empire Trading?",
-    answer: "To win the game, you need strong support and diligent preparation. Join For Traders Community."
-  },
-  {
-    id: 2,
-    question: "Who can apply?",
-    answer: "Anyone with a passion for trading and a commitment to risk management can apply to our funded programs."
-  },
-  {
-    id: 3,
-    question: "How does funding work?",
-    answer: "Our funding process is straightforward: pass the evaluation phase to prove your skills, and get access to a funded account with profit sharing."
-  },
-  {
-    id: 4,
-    question: "Which markets can I trade?",
-    answer: "We support a wide range of markets including Forex, Commodities, Indices, and major Cryptocurrencies."
-  },
-  {
-    id: 5,
-    question: "How do you help manage risk?",
-    answer: "We provide automated risk management tools, daily loss limits, and a professional dashboard to track your performance."
-  },
-  {
-    id: 6,
-    question: "Do you offer resources for new traders?",
-    answer: "Yes, we offer educational webinars, a comprehensive trading guide, and a dedicated discord community for knowledge sharing."
-  },
-  {
-    id: 7,
-    question: "How fast are payouts?",
-    answer: "Payouts are processed within 24-48 hours of request, ensuring you get your rewards quickly and efficiently."
-  },
-  {
-    id: 8,
-    question: "What trading platforms do you support?",
-    answer: "We support MetaTrader 4, MetaTrader 5, and our own proprietary institutional-grade trading interface."
-  }
-];
+import { siteConfig } from "@/config/site";
 
 export const FAQ = () => {
+  const { headline, subheadline, items } = siteConfig.faq;
   const [activeId, setActiveId] = useState<number | null>(1);
 
   return (
@@ -86,7 +46,7 @@ export const FAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className={`${FAQ_CONFIG.typography.headline} text-white max-w-[700px]`}
           >
-            Frequently Asked <span className="text-[#5ECF90] font-medium">Questions</span>
+            {headline.split("Asked")[0]} Asked <span className="text-brand font-medium">{headline.split("Asked")[1]}</span>
           </motion.h2>
           
           <motion.p 
@@ -95,14 +55,14 @@ export const FAQ = () => {
             transition={{ delay: 0.1 }}
             className={`${FAQ_CONFIG.typography.subheadline} text-white max-w-[800px]`}
           >
-            I know... just like you many traders have these questions, <br className="hidden md:block" />
-            so here are the answers!
+            {subheadline.split(",")[0]}, <br className="hidden md:block" />
+            {subheadline.split(",")[1]}
           </motion.p>
         </div>
 
         {/* FAQ Accordion List - High-Density Frames */}
         <div className="max-w-[900px] mx-auto flex flex-col gap-3">
-          {FAQ_DATA.map((item) => (
+          {items.map((item) => (
             <motion.div 
               key={item.id}
               initial={{ opacity: 0, y: 10 }}
@@ -113,7 +73,7 @@ export const FAQ = () => {
             >
               <div className="p-5 lg:p-6 flex items-start justify-between gap-4">
                 <div className="space-y-2 pr-8">
-                  <h3 className={`${FAQ_CONFIG.typography.question} text-[#5ECF90]`}>
+                  <h3 className={`${FAQ_CONFIG.typography.question} text-brand`}>
                     {item.question}
                   </h3>
                   
@@ -135,7 +95,7 @@ export const FAQ = () => {
 
                 {/* Fixed Icon Position at top-right corner of padding */}
                 <motion.div 
-                  className={`${FAQ_CONFIG.typography.icon} text-[#64C08D] shrink-0 pt-0.5`}
+                  className={`${FAQ_CONFIG.typography.icon} text-brand shrink-0 pt-0.5`}
                   animate={{ rotate: activeId === item.id ? 45 : 0 }}
                   transition={{ duration: 0.25 }}
                 >

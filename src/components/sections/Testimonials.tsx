@@ -40,23 +40,10 @@ interface Testimonial {
 }
 
 // Simulated data - in production this would come from a CMS or API
-const TESTIMONIALS_DATA: Testimonial[] = Array.from({ length: 24 }).map((_, i) => ({
-  id: i,
-  name: ["Karan Gupta", "Sarah Chen", "Alex Rivera", "Elena Fischer", "David Park", "James Wilson"][i % 6],
-  timeAgo: `${(i + 1) * 2} hours ago`,
-  headline: ["Great!", "Excellent support", "Fast payouts", "Best prop firm", "Highly recommended", "Trustworthy"][i % 6],
-  content: [
-    "Great, while on the Evaluation stage, I can't comment further because I never had a funded account and am not sure about their restrictions and payout.",
-    "The support team is incredible. They answered my questions within minutes and helped me set up my account effortlessly.",
-    "Received my first payout today! The process was smooth and exactly as described. Best experience with a prop firm so far.",
-    "Love the dashboard and the transparency. The rules are clear and the community is very supportive. Excited for my journey here.",
-    "Very satisfied with the trading conditions. Spreads are low and execution is lighting fast. Truly in safe hands.",
-    "I've tried many firms, but Funded Masters is the most consistent. No hidden rules, just pure trading performance rewards."
-  ][i % 6],
-  rating: 5,
-}));
+import { siteConfig } from "@/config/site";
 
 export const Testimonials = () => {
+  const { headline, items } = siteConfig.testimonials;
   const containerRef = useRef<HTMLDivElement>(null);
   
   // High-performance scroll tracking
@@ -105,7 +92,7 @@ export const Testimonials = () => {
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className={`${TESTIMONIALS_CONFIG.typography.tagline} text-[#40FF95]`}
+            className={`${TESTIMONIALS_CONFIG.typography.tagline} text-brand`}
           >
             TESTIMONIALS
           </motion.p>
@@ -113,10 +100,10 @@ export const Testimonials = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className={`${TESTIMONIALS_CONFIG.typography.headline} text-white max-w-[900px] font-normal`}
+            className="text-white text-3xl md:text-5xl lg:text-[65px] font-normal leading-tight tracking-tight max-w-[900px]"
           >
-            <span className="font-semibold">Trust Us - </span>
-            <span>You’re In Safe Hands</span>
+            <span className="font-semibold">{headline.split("-")[0]} - </span>
+            <span>{headline.split("-")[1]}</span>
           </motion.h2>
 
           <div className="flex flex-col items-center gap-3">
@@ -147,14 +134,14 @@ export const Testimonials = () => {
           ref={containerRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 max-h-[500px] lg:max-h-[750px] overflow-y-auto custom-scrollbar-testimonials pr-2 lg:pr-12 w-full touch-pan-y"
         >
-          {TESTIMONIALS_DATA.map((testimonial, idx) => (
+          {items.map((testimonial, idx) => (
             <motion.div 
-              key={testimonial.id}
+              key={idx}
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (idx % 3) * 0.05 }}
-              className="bg-[#05120B] border-2 border-[#244D37] rounded-[12px] p-5 lg:p-7 space-y-4 hover:border-[#40FF95]/30 transition-all duration-300 shadow-xl"
+              className="bg-[#05120B] border-2 border-[#244D37] rounded-[12px] p-5 lg:p-7 space-y-4 hover:border-brand/30 transition-all duration-300 shadow-xl"
             >
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
@@ -166,12 +153,12 @@ export const Testimonials = () => {
               
               <div className="space-y-0.5">
                 <p className={`${TESTIMONIALS_CONFIG.typography.cardName} text-white`}>
-                  {testimonial.name}, <span className="font-normal text-[#BEBEC2]">{testimonial.timeAgo}</span>
+                  {testimonial.name}, <span className="font-normal text-[#BEBEC2]">{testimonial.role}</span>
                 </p>
               </div>
 
               <h4 className={`${TESTIMONIALS_CONFIG.typography.cardHeadline} text-white`}>
-                {testimonial.headline}
+                {testimonial.name}
               </h4>
 
               <p className={`${TESTIMONIALS_CONFIG.typography.cardContent} text-[#D1D1D1]/80`}>

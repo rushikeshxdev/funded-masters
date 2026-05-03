@@ -3,53 +3,39 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const STEPS = [
-  {
-    title: "Challenge Phase",
-    description: "Choose a Challenge account and showcase your skills.",
-    icon: "/images/icons/trophy.png",
-  },
-  {
-    title: "Get Funded Account",
-    description: "Pass your challenge and get a simulated funded account.",
-    icon: "/images/icons/bank.png",
-  },
-  {
-    title: "Get Rewarded",
-    description: "Earn your share of the profits and receive your payout within 24 hrs.",
-    icon: "/images/icons/dollar.png",
-  },
-];
+import { siteConfig } from "@/config/site";
 
 export const HowItWorks = () => {
+  const { tagline, headline, description, cta, steps } = siteConfig.howItWorks;
+
   return (
-    <section id="how-it-works" className="w-full py-16 bg-black overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6">
+    <section id="how-it-works" className="w-full py-16 lg:py-24 bg-black overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         
         {/* Main Frame Container */}
-        <div className="w-full bg-[#01110B]/80 border border-white/5 rounded-[30px] p-8 lg:p-14 relative overflow-hidden">
+        <div className="w-full bg-[#01110B]/80 border border-white/5 rounded-[30px] p-6 lg:p-12 relative overflow-hidden">
           
           {/* Content Layout: Top Row */}
-          <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-12 lg:mb-20">
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-12 lg:mb-16">
             
             <div className="max-w-[850px] space-y-4">
-              <span className="font-figtree font-medium text-base lg:text-[20px] text-[#40FF95] tracking-widest uppercase">
-                HOW IT WORKS
+              <span className="font-figtree font-medium text-sm lg:text-base text-brand tracking-widest uppercase">
+                {tagline}
               </span>
-              <h2 className="font-figtree text-[32px] md:text-[45px] lg:text-[65px] leading-[0.95] text-white tracking-tight lg:tracking-[-2px]">
-                Maximum Profit & <br className="hidden lg:block" /> 
-                Secure <span className="font-semibold text-[#59D28F] tracking-[-3px] whitespace-nowrap">Trading Platform</span>
+              <h2 className="font-figtree text-[32px] md:text-[45px] lg:text-[65px] leading-[1.1] text-white tracking-tight">
+                {headline.split("&")[0]} & <br className="hidden lg:block" /> 
+                <span className="font-semibold text-brand">{headline.split("&")[1]}</span>
               </h2>
-              <p className="font-figtree font-light text-base lg:text-[20px] text-[#D1D1D1] max-w-[450px] leading-snug opacity-70">
-                Choose the evaluation based on your preference to become an Empire Trader.
+              <p className="font-figtree font-light text-lg lg:text-[24px] text-[#D1D1D1] max-w-[450px] opacity-70">
+                {description}
               </p>
               
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="h-[58px] px-10 bg-[#59D28F] rounded-[65px] font-figtree font-semibold text-[20px] text-[#001B0C] transition-shadow hover:shadow-[0_0_30px_rgba(89,210,143,0.3)] mt-2"
+                className="h-[52px] lg:h-[58px] px-8 lg:px-10 bg-brand rounded-full font-figtree font-semibold text-base lg:text-[20px] text-[#001B0C] transition-shadow hover:shadow-[0_0_30px_rgba(89,210,143,0.3)] mt-2"
               >
-                Get Funded
+                {cta}
               </motion.button>
             </div>
 
@@ -62,13 +48,13 @@ export const HowItWorks = () => {
                 className="object-contain"
                 priority
               />
-              <div className="absolute inset-0 bg-[#59D28F]/10 blur-[100px] rounded-full -z-10" />
+              <div className="absolute inset-0 bg-brand/10 blur-[100px] rounded-full -z-10" />
             </div>
           </div>
 
           {/* Cards Grid: Bottom Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {STEPS.map((step, index) => (
+            {steps.map((step, index) => (
               <StepCard key={index} {...step} index={index} />
             ))}
           </div>
@@ -110,10 +96,10 @@ const StepCard = ({ title, description, icon, index }: { title: string; descript
 
         {/* Text Content */}
         <div className="space-y-3">
-          <h3 className="font-figtree font-semibold text-xl lg:text-[32px] text-white leading-tight">
+          <h3 className="font-figtree font-semibold text-lg lg:text-[24px] xl:text-[28px] text-white leading-tight">
             {title}
           </h3>
-          <p className="font-figtree font-light text-base lg:text-[20px] text-[#D1D1D1] leading-tight tracking-[-2%] opacity-80">
+          <p className="font-figtree font-light text-sm lg:text-base xl:text-[18px] text-[#D1D1D1] leading-tight tracking-[-1%] opacity-80">
             {description}
           </p>
         </div>

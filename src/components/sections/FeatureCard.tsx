@@ -47,7 +47,7 @@ export const FeatureCard = ({ feature, index }: FeatureCardProps) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="relative group bg-[#030C07] w-full max-w-[530px] aspect-auto md:aspect-[1.3] min-h-[380px] rounded-[27px] overflow-hidden transition-all duration-700 hover:bg-[#041209] border border-transparent shadow-2xl flex flex-col justify-end p-8 md:p-10"
+    className="relative group bg-[#030C07] w-full max-w-[420px] aspect-auto md:aspect-[1.3] min-h-[320px] rounded-[24px] overflow-hidden transition-all duration-700 hover:bg-[#041209] border border-transparent shadow-2xl flex flex-col justify-end p-6 md:p-8"
     style={{
       borderWidth: "0.89px",
       borderImageSource: "radial-gradient(44.12% 54.98% at 50% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -77,7 +77,7 @@ export const FeatureCard = ({ feature, index }: FeatureCardProps) => (
     </div>
 
     {/* Icon Module */}
-    <div className="absolute top-8 left-8 z-20">
+    <div className="absolute top-6 left-6 z-20">
       <div className={`relative ${CARD_CONFIG.icon.size} bg-[#002512] rounded-full flex items-center justify-center border border-white/5 shadow-inner group-hover:border-white/10 transition-all duration-500`}>
         <div className={`relative ${CARD_CONFIG.icon.vectorSize} filter brightness-110 group-hover:scale-110 transition-transform duration-500`}>
           <Image src={feature.icon} alt={feature.title} fill className="object-contain" />
@@ -87,11 +87,11 @@ export const FeatureCard = ({ feature, index }: FeatureCardProps) => (
     </div>
 
     {/* Text Content */}
-    <div className="relative z-20 space-y-4 mt-24 md:mt-0">
-      <h3 className="text-white text-2xl md:text-[28px] lg:text-[32px] font-medium leading-tight font-figtree group-hover:text-[#59D28F] transition-colors duration-300">
+    <div className="relative z-20 space-y-3 mt-24 md:mt-0">
+      <h3 className="text-white text-xl md:text-[22px] lg:text-[26px] font-medium leading-tight font-figtree group-hover:text-[#59D28F] transition-colors duration-300">
         {feature.title}
       </h3>
-      <p className="text-[#909AAA] text-sm md:text-base lg:text-[20px] font-normal leading-relaxed font-figtree tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">
+      <p className="text-[#909AAA] text-xs md:text-sm lg:text-[17px] font-normal leading-relaxed font-figtree tracking-tight opacity-80 group-hover:opacity-100 transition-opacity">
         {feature.description}
       </p>
     </div>
