@@ -23,52 +23,102 @@ const STEPS = [
 
 export const HowItWorks = () => {
   return (
-    <section className="relative w-full py-24 bg-black overflow-hidden font-figtree">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+    <section id="how-it-works" className="w-full py-16 bg-black overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6">
         
-        <div className="relative w-[1196px] h-[550px] bg-[#030C07] rounded-[40px] p-20 overflow-hidden border border-white/5 mb-24 mx-auto shadow-2xl">
-           <div className="absolute top-1/2 right-[50px] -translate-y-1/2 w-[600px] h-[500px] pointer-events-none">
-             <Image 
-               src="/images/backgrounds/section-bg-3.png" 
-               alt="3D Cross" 
-               fill 
-               className="object-contain"
-             />
-           </div>
+        {/* Main Frame Container */}
+        <div className="w-full bg-[#01110B]/80 border border-white/5 rounded-[30px] p-8 lg:p-14 relative overflow-hidden">
+          
+          {/* Content Layout: Top Row */}
+          <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-12 lg:mb-20">
+            
+            <div className="max-w-[850px] space-y-4">
+              <span className="font-figtree font-medium text-base lg:text-[20px] text-[#40FF95] tracking-widest uppercase">
+                HOW IT WORKS
+              </span>
+              <h2 className="font-figtree text-[32px] md:text-[45px] lg:text-[65px] leading-[0.95] text-white tracking-tight lg:tracking-[-2px]">
+                Maximum Profit & <br className="hidden lg:block" /> 
+                Secure <span className="font-semibold text-[#59D28F] tracking-[-3px] whitespace-nowrap">Trading Platform</span>
+              </h2>
+              <p className="font-figtree font-light text-base lg:text-[20px] text-[#D1D1D1] max-w-[450px] leading-snug opacity-70">
+                Choose the evaluation based on your preference to become an Empire Trader.
+              </p>
+              
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="h-[58px] px-10 bg-[#59D28F] rounded-[65px] font-figtree font-semibold text-[20px] text-[#001B0C] transition-shadow hover:shadow-[0_0_30px_rgba(89,210,143,0.3)] mt-2"
+              >
+                Get Funded
+              </motion.button>
+            </div>
 
-           <div className="relative z-10 space-y-10">
-             <span className="text-brand text-xl font-medium tracking-widest uppercase">How It Works</span>
-             <h2 className="text-white text-[85px] font-normal leading-[1.1] tracking-tight">
-               Maximum Profit & <br />
-               Secure <span className="font-semibold text-brand">Trading Platform</span>
-             </h2>
-             <p className="text-[#909AAA] text-[28px] font-light opacity-80 leading-relaxed">
-               Choose the evaluation based on your preference <br />
-               to become an Empire Trader.
-             </p>
-             <button className="px-12 py-5 bg-brand text-[#001B0C] rounded-full text-2xl font-bold shadow-lg">
-               Get Funded
-             </button>
-           </div>
+            {/* 3D Glass Icon (The Plus/Cross) */}
+            <div className="hidden lg:block absolute -top-[120px] -right-[180px] w-[600px] xl:w-[850px] h-[450px] xl:h-[600px] pointer-events-none">
+              <Image 
+                src="/images/icons/3dicon.png" 
+                alt="Decorative 3D Icon" 
+                fill 
+                className="object-contain"
+                priority
+              />
+              <div className="absolute inset-0 bg-[#59D28F]/10 blur-[100px] rounded-full -z-10" />
+            </div>
+          </div>
+
+          {/* Cards Grid: Bottom Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {STEPS.map((step, index) => (
+              <StepCard key={index} {...step} index={index} />
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const StepCard = ({ title, description, icon, index }: { title: string; description: string; icon: string; index: number }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="relative p-[1px] rounded-[30px] overflow-hidden group"
+      style={{
+        background: `radial-gradient(44.12% 54.98% at 50% 0%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%)`,
+      }}
+    >
+      <div className="bg-[#00150D] h-full rounded-[30px] p-6 lg:p-10 space-y-6 relative overflow-hidden transition-colors group-hover:bg-[#001B11]">
+
+        {/* Icon Circle Section */}
+        <div className="relative">
+          <div className="relative w-[80px] h-[80px] rounded-full flex items-center justify-center z-10 bg-[#000704] border border-white/5">
+            <div className={`relative ${index === 0 ? "w-[44px] h-[44px]" : "w-[56px] h-[56px]"}`}>
+              <Image
+                src={icon}
+                alt={title}
+                fill
+                className="object-contain transition-transform group-hover:scale-110"
+              />
+            </div>
+          </div>
+          <div className="absolute top-[65px] left-[15px] w-[50px] h-[25px] bg-[#00FF8B] blur-[20px] opacity-40 rounded-full" />
         </div>
 
-        <div className="grid grid-cols-3 gap-8 w-[1196px] mx-auto">
-          {STEPS.map((step, idx) => (
-            <div key={idx} className="bg-[#030C07] h-[350px] rounded-[32px] p-10 border border-white/5 shadow-2xl">
-              <div className="w-16 h-16 rounded-full bg-[#002512] flex items-center justify-center mb-8">
-                <div className="relative w-8 h-8"><Image src={step.icon} alt={step.title} fill /></div>
-              </div>
-              <h3 className="text-white text-3xl font-semibold mb-4 tracking-tight">
-                {step.title}
-              </h3>
-              <p className="text-[#909AAA] text-xl font-normal leading-relaxed opacity-80">
-                {step.description}
-              </p>
-            </div>
-          ))}
+        {/* Text Content */}
+        <div className="space-y-3">
+          <h3 className="font-figtree font-semibold text-xl lg:text-[32px] text-white leading-tight">
+            {title}
+          </h3>
+          <p className="font-figtree font-light text-base lg:text-[20px] text-[#D1D1D1] leading-tight tracking-[-2%] opacity-80">
+            {description}
+          </p>
         </div>
 
       </div>
-    </section>
+    </motion.div>
   );
 };
