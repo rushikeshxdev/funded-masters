@@ -98,7 +98,7 @@ export const siteConfig = {
       amount: "$897",
       cta: "Get Funded"
     },
-    paths: ["Instant", "1-Step", "2-Step", "Sparatn"],
+    paths: ["Instant", "1-Step", "2-Step", "Spartan"],
     sizes: ["$25K", "$50K", "$100K"],
     evaluation: {
       phase1: {
